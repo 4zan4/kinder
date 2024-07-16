@@ -34,6 +34,7 @@
 <!-- Template Javascript -->
 <script src="../../assets/admin/js/main.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
@@ -42,5 +43,26 @@
     new DataTable('#example2');
 </script>
 
+<!-- SweetAlert Script -->
+<script>
+    <?php if (isset($_SESSION['success']) && $_SESSION['success'] != ''): ?>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: '<?php echo $_SESSION['success']; ?>'
+        });
+        <?php unset($_SESSION['success']); ?> // Clear session after displaying
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['fail']) && $_SESSION['fail'] != ''): ?>
+        Swal.fire({
+            icon: 'error',
+            title: 'Fail',
+            text: '<?php echo $_SESSION['fail']; ?>'
+        });
+        <?php unset($_SESSION['fail']); ?> // Clear session after displaying
+    <?php endif; ?>
+</script>
+<!-- SweetAlert Script -->
 
 </body>

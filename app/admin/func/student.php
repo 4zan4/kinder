@@ -18,8 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   VALUES ('$first_name', '$last_name', '$date_of_birth', '$address', '$parent_name', '$parent_contact', '$email', '$enrollment_date')";
 
         if (mysqli_query($koneksi, $query)) {
+            $_SESSION['success'] = "Student added successfully.";
             header("Location: " . $_SERVER['HTTP_REFERER']);
         } else {
+            $_SESSION['fail'] = "Failed to add student.";
             header("Location: " . $_SERVER['HTTP_REFERER']);
         }
     } elseif ($action == 'update') {
@@ -28,8 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   parent_name='$parent_name', parent_contact='$parent_contact', email='$email', enrollment_date='$enrollment_date' WHERE student_id='$student_id'";
 
         if (mysqli_query($koneksi, $query)) {
+            $_SESSION['success'] = "Student updated successfully.";
             header("Location: " . $_SERVER['HTTP_REFERER']);
         } else {
+            $_SESSION['fail'] = "Failed to update student.";
             header("Location: " . $_SERVER['HTTP_REFERER']);
         }
     }
@@ -40,8 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $query = "DELETE FROM students WHERE student_id='$student_id'";
 
     if (mysqli_query($koneksi, $query)) {
+        $_SESSION['success'] = "Student deleted successfully.";
         header("Location: " . $_SERVER['HTTP_REFERER']);
     } else {
+        $_SESSION['fail'] = "Failed to delete student.";
         header("Location: " . $_SERVER['HTTP_REFERER']);
     }
 

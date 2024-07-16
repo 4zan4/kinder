@@ -44,63 +44,61 @@
                                 <td><?= $row['enrollment_date']; ?></td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-sm-square btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#modalUpdateStudent<?= $row['student_id']; ?>"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="func/student.php?delete_id=<?= $row['student_id']; ?>" class="btn btn-sm btn-sm-square btn-outline-danger m-2"><i class="bi bi-trash-fill"></i></a>
+                                    <a href="#" onclick="deleteStudent(<?= $row['student_id']; ?>)" class="btn btn-sm btn-sm-square btn-outline-danger m-2"><i class="bi bi-trash-fill"></i></a>
                                 </td>
-
                             </tr>
-
                             <!-- Modal Update Start -->
-<div class="modal fade" id="modalUpdateStudent<?= $row['student_id']; ?>" tabindex="-1" aria-labelledby="modalUpdateStudentLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalUpdateStudentLabel">Update Student</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Form for updating student -->
-                <form action="func/student.php" method="POST">
-                    <input type="hidden" name="action" value="update">
-                    <input type="hidden" name="student_id" value="<?= $row['student_id']; ?>">
-                    <div class="mb-3">
-                        <label for="first_name" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="first_name" name="first_name" value="<?= $row['first_name']; ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="last_name" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="last_name" name="last_name" value="<?= $row['last_name']; ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="date_of_birth" class="form-label">Date of Birth</label>
-                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" value="<?= $row['date_of_birth']; ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address" name="address" value="<?= $row['address']; ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="parent_name" class="form-label">Parent's Name</label>
-                        <input type="text" class="form-control" id="parent_name" name="parent_name" value="<?= $row['parent_name']; ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="parent_contact" class="form-label">Parent's Contact</label>
-                        <input type="text" class="form-control" id="parent_contact" name="parent_contact" value="<?= $row['parent_contact']; ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" value="<?= $row['email']; ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="enrollment_date" class="form-label">Enrollment Date</label>
-                        <input type="date" class="form-control" id="enrollment_date" name="enrollment_date" value="<?= $row['enrollment_date']; ?>" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Update</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal Update End -->
+                            <div class="modal fade" id="modalUpdateStudent<?= $row['student_id']; ?>" tabindex="-1" aria-labelledby="modalUpdateStudentLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalUpdateStudentLabel">Update Student</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Form for updating student -->
+                                            <form action="func/student.php" method="POST">
+                                                <input type="hidden" name="action" value="update">
+                                                <input type="hidden" name="student_id" value="<?= $row['student_id']; ?>">
+                                                <div class="mb-3">
+                                                    <label for="first_name" class="form-label">First Name</label>
+                                                    <input type="text" class="form-control" id="first_name" name="first_name" value="<?= $row['first_name']; ?>" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="last_name" class="form-label">Last Name</label>
+                                                    <input type="text" class="form-control" id="last_name" name="last_name" value="<?= $row['last_name']; ?>" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="date_of_birth" class="form-label">Date of Birth</label>
+                                                    <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" value="<?= $row['date_of_birth']; ?>" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="address" class="form-label">Address</label>
+                                                    <input type="text" class="form-control" id="address" name="address" value="<?= $row['address']; ?>" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="parent_name" class="form-label">Parent's Name</label>
+                                                    <input type="text" class="form-control" id="parent_name" name="parent_name" value="<?= $row['parent_name']; ?>" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="parent_contact" class="form-label">Parent's Contact</label>
+                                                    <input type="text" class="form-control" id="parent_contact" name="parent_contact" value="<?= $row['parent_contact']; ?>" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="email" class="form-label">Email</label>
+                                                    <input type="email" class="form-control" id="email" name="email" value="<?= $row['email']; ?>" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="enrollment_date" class="form-label">Enrollment Date</label>
+                                                    <input type="date" class="form-control" id="enrollment_date" name="enrollment_date" value="<?= $row['enrollment_date']; ?>" required>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Update</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal Update End -->
 
                         <?php
                         }
@@ -167,22 +165,42 @@
 
 <!-- SweetAlert Script -->
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const status = urlParams.get('status');
-
-        if (status === 'success') {
-            Swal.fire({
-                icon: 'success',
-                title: 'Success',
-                text: 'Operation completed successfully!',
-            });
-        } else if (status === 'error') {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'There was a problem completing the operation.',
-            });
-        }
-    });
+    function deleteStudent(studentId) {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `func/student.php?delete_id=${studentId}`;
+            }
+        });
+    }
 </script>
+<!-- SweetAlert Script -->
+<script>
+    <?php if (isset($_SESSION['success']) && $_SESSION['success'] != ''): ?>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: '<?php echo $_SESSION['success']; ?>'
+        });
+        <?php unset($_SESSION['success']); ?> // Clear session after displaying
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['fail']) && $_SESSION['fail'] != ''): ?>
+        Swal.fire({
+            icon: 'error',
+            title: 'Fail',
+            text: '<?php echo $_SESSION['fail']; ?>'
+        });
+        <?php unset($_SESSION['fail']); ?> // Clear session after displaying
+    <?php endif; ?>
+</script>
+<!-- SweetAlert Script -->
+
+
